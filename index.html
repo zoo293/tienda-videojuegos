@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAMEVERSE | Ingresar</title>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--fondo:#0e0b1a;--violeta:#7c5cff;--rosa:#ff4fa3;--cian:#29e0ff;--texto:#ece9ff;--suave:#a9a3c7}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Titillium Web',Arial,sans-serif}
+body{min-height:100vh;display:grid;place-items:center;padding:20px;color:var(--texto);background:var(--fondo);overflow:hidden}
+body::before,body::after{content:"";position:fixed;width:520px;height:520px;border-radius:50%;filter:blur(110px);opacity:.45;z-index:-1;animation:flota 14s ease-in-out infinite alternate}
+body::before{background:var(--violeta);top:-160px;left:-120px}
+body::after{background:var(--rosa);bottom:-180px;right:-120px;animation-delay:-7s}
+@keyframes flota{to{transform:translate(70px,50px)}}
+.caja{width:100%;max-width:410px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(18px);border-radius:22px;padding:34px 30px;box-shadow:0 25px 60px rgba(0,0,0,.5)}
+.logo{text-align:center;font-size:38px;font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:var(--suave);margin:4px 0 24px}
+.tabs{display:flex;background:rgba(0,0,0,.35);border-radius:12px;padding:4px;margin-bottom:22px}
+.tabs button{flex:1;padding:10px;border:0;border-radius:9px;background:transparent;color:var(--suave);font-size:16px;font-weight:600;cursor:pointer;transition:.25s}
+.tabs button.activo{background:linear-gradient(90deg,var(--violeta),var(--rosa));color:#fff}
+form{display:none}form.activo{display:block}
+label{display:block;font-size:14px;color:var(--suave);margin:14px 0 6px}
+.campo{position:relative}
+input{width:100%;padding:13px 14px;border-radius:11px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.35);color:var(--texto);font-size:16px;outline:none;transition:.2s}
+input:focus{border-color:var(--cian);box-shadow:0 0 0 3px rgba(41,224,255,.18)}
+.ojo{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--suave);cursor:pointer;font-size:13px}
+.principal{width:100%;margin-top:22px;padding:14px;border:0;border-radius:12px;font-size:17px;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--violeta),var(--rosa));transition:.25s}
+.principal:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(124,92,255,.45)}
+.msg{min-height:20px;margin-top:14px;text-align:center;font-size:14px}
+.msg.error{color:#ff7a8a}.msg.ok{color:#5df0a8}
+@media(prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
+</style>
+</head>
+<body>
+<main class="caja">
+  <div class="logo">GAMEVERSE</div>
+  <p class="sub">Tu tienda de videojuegos</p>
+  <div class="tabs">
+    <button id="tab-login" class="activo" type="button">Iniciar sesión</button>
+    <button id="tab-registro" type="button">Crear cuenta</button>
+  </div>
+
+  <form id="f-login" class="activo" autocomplete="on">
+    <label for="l-correo">Correo</label>
+    <input id="l-correo" type="email" placeholder="tucorreo@gmail.com" required>
+    <label for="l-clave">Contraseña</label>
+    <div class="campo"><input id="l-clave" type="password" placeholder="Tu contraseña" required><button class="ojo" type="button" data-ver="l-clave">Ver</button></div>
+    <button class="principal" type="submit">Entrar</button>
+  </form>
+
+  <form id="f-registro" autocomplete="on">
+    <label for="r-nombre">Nombre completo</label>
+    <input id="r-nombre" type="text" placeholder="Tu nombre" required>
+    <label for="r-correo">Correo</label>
+    <input id="r-correo" type="email" placeholder="tucorreo@gmail.com" required>
+    <label for="r-clave">Contraseña (mínimo 6 caracteres)</label>
+    <div class="campo"><input id="r-clave" type="password" placeholder="Crea una contraseña" required><button class="ojo" type="button" data-ver="r-clave">Ver</button></div>
+    <label for="r-clave2">Repite la contraseña</label>
+    <input id="r-clave2" type="password" placeholder="Repite la contraseña" required>
+    <button class="principal" type="submit">Crear mi cuenta</button>
+  </form>
+  <p id="msg" class="msg" role="alert"></p>
+</main>
+
+<script>
+// Si ya hay sesión iniciada, pasa directo a la tienda
+if (localStorage.getItem('gv_sesion')) location.replace('tienda.html');
+
+const $ = id => document.getElementById(id);
+const usuarios = () => JSON.parse(localStorage.getItem('gv_usuarios') || '{}');
+
+// Convierte la contraseña en un código (hash) para no guardarla en texto plano
+async function hash(t){
+  try{
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
+    return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2,'0')).join('');
+  }catch(e){ let h=0; for(const c of t) h=(h*31+c.charCodeAt(0))|0; return 'f'+h; }
+}
+function aviso(txt, tipo){ const m=$('msg'); m.textContent=txt; m.className='msg '+(tipo||'error'); }
+function cambiar(modo){
+  $('tab-login').classList.toggle('activo', modo==='login');
+  $('tab-registro').classList.toggle('activo', modo==='registro');
+  $('f-login').classList.toggle('activo', modo==='login');
+  $('f-registro').classList.toggle('activo', modo==='registro');
+  aviso('');
+}
+$('tab-login').onclick = () => cambiar('login');
+$('tab-registro').onclick = () => cambiar('registro');
+document.querySelectorAll('.ojo').forEach(b => b.onclick = () => {
+  const i = $(b.dataset.ver); i.type = i.type==='password' ? 'text' : 'password';
+  b.textContent = i.type==='password' ? 'Ver' : 'Ocultar';
+});
+function entrar(u){
+  localStorage.setItem('gv_sesion', JSON.stringify({nombre:u.nombre, correo:u.correo}));
+  location.href = 'tienda.html';
+}
+
+$('f-registro').onsubmit = async e => {
+  e.preventDefault();
+  const nombre=$('r-nombre').value.trim(), correo=$('r-correo').value.trim().toLowerCase();
+  const c1=$('r-clave').value, c2=$('r-clave2').value, lista=usuarios();
+  if (c1.length < 6) return aviso('La contraseña debe tener al menos 6 caracteres.');
+  if (c1 !== c2) return aviso('Las contraseñas no coinciden.');
+  if (lista[correo]) return aviso('Ese correo ya tiene una cuenta. Inicia sesión.');
+  lista[correo] = {nombre, correo, clave: await hash(c1)};
+  localStorage.setItem('gv_usuarios', JSON.stringify(lista));
+  aviso('Cuenta creada. Entrando…', 'ok');
+  setTimeout(() => entrar(lista[correo]), 700);
+};
+
+$('f-login').onsubmit = async e => {
+  e.preventDefault();
+  const u = usuarios()[$('l-correo').value.trim().toLowerCase()];
+  if (!u || u.clave !== await hash($('l-clave').value)) return aviso('Correo o contraseña incorrectos.');
+  entrar(u);
+};
+</script>
+</body>
+</html>

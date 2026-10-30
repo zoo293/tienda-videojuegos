@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto"> 
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/fifa.img1.avif" alt="Carrusel imagen">
+        <img src="img/fifa.img2.avif" alt="Carrusel imagen">
+        <img src="img/fifa.img3.jpeg" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>FC 25 (EA Sports FC 25)</h2>
+        <p><strong>FC 25 (EA Sports FC 25)</strong> es un juego de simulación de fútbol desarrollado por EA Sports. Es la continuación de la serie de juegos de fútbol de EA Sports,
+             que anteriormente se conocía como FIFA.</p>
+        <h3>Novedades:</h3>
+        <p>Mejoras en la jugabilidad: El juego incluye mejoras en la jugabilidad, como un nuevo sistema de control de los jugadores y una mayor variedad de movimientos y habilidades.</p>
+        <p>Nuevas características: El juego puede incluir nuevas características, como un nuevo modo de juego o una mayor personalización de los jugadores y equipos.</p>
+        <p>En resumen, FC 25 es un juego de simulación de fútbol que ofrece una experiencia realista y emocionante para los fanáticos del deporte. Con sus gráficos de alta calidad,
+             física realista y variedad de modos de juego, es una excelente opción para aquellos que buscan un juego de fútbol auténtico.</p>
+        <h3>Características</h3>
+        <ul>
+          <li><strong>Modo de juego:</strong>  El juego cuenta con diferentes modos de juego, como Ultimate Team, Carrera y Kick-Off, que permiten a los jugadores crear
+             y personalizar sus equipos y jugadores.</li>
+          <li><strong>Gráficos y física </strong> El juego tiene gráficos de alta calidad y una física realista que simula el comportamiento de los jugadores y el balón en el campo.</li>
+          <li><strong>Jugadores y equipos:</strong> El juego cuenta con una gran cantidad de jugadores y equipos reales, incluyendo ligas y competiciones internacionales.</li>
+          <li><strong>Modo en línea: </strong> El juego permite a los jugadores competir en línea con otros jugadores de todo el mundo.</li>
+      
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

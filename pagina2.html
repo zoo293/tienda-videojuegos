@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto">
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/dragonball.img1.jpeg" alt="Carrusel imagen">
+        <img src="img/dragonball.img2.jpeg" alt="Carrusel imagen">
+        <img src="img/dra.jpeg" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>dragonball sparking zero</h2>
+        <p><strong>dragonball sparking zero</strong> El juego "Dragon Ball Sparking Zero" es un juego de lucha en desarrollo basado en la popular serie de anime y manga Dragon Ball.
+             Aunque no hay mucha información disponible sobre el juego, se espera que tenga las siguientes características:</p>
+        
+        <h3>Trama principal</h3>
+        <p>Combates épicos: El juego probablemente contará con combates intensos y emocionantes entre los personajes de Dragon Ball, incluyendo a Goku, Vegeta, Piccolo y otros.</p>
+        <p>Habilidades especiales: Los personajes probablemente tendrán habilidades especiales y ataques únicos, como el Kamehameha de Goku o el Galick Gun de Vegeta.</p>
+        <p>Modos de juego: El juego podría incluir diferentes modos de juego, como un modo historia, un modo de lucha libre y un modo de torneo.</p>
+       
+        
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

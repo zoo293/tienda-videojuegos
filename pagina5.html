@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto">
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/lego.img1.jpg" alt="Carrusel imagen">
+        <img src="img/lego.img2.jpg" alt="Carrusel imagen">
+        <img src="img/lego.img3.jpg" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>La Gran Aventura Lego</h2>
+        <p><strong>La Gran Aventura Lego</strong> el videojuego (La LEGO película: el videojuego en España) es un videojuego perteneciente al género de acción-aventura desarrollado por 
+            TT Games, como parte de la serie de los videojuegos Lego. De ello se sigue la trama de la película de animación La gran aventura LEGO.</p>
+        <p> El juego fue lanzado por Warner Bros. Interactive Entertainment junto a la película en 2014 para Microsoft Windows, Nintendo 3DS, PlayStation 3, PlayStation 4, PlayStation Vita,
+             Wii U, Xbox 360 y Xbox One. Más adelante, la compañía inglesa Feral Interactive publicó un port del juego para macOS en octubre de 2014.[1]​</p>
+        <h3>Jugabilidad</h3>
+        <p>EContinuando con la tendencia de la jugabilidad de los títulos anteriores de Lego por TT Games, el juego pone a los jugadores en el control de varios personajes de la película,
+             haciendo uso de piezas de Lego para hacer su camino a través de varios niveles. Por primera vez en la serie, los ambientes están completamente hechas de piezas de Lego. 
+             El juego introduce dos principales nuevos tipos de caracteres: Constructores regulares (como Emmet en niveles anteriores) y Master Builders (como Batman, Benny, Princesa 
+             Uni-Kitty, Vitruvius, y Wyldstyle). Constructores regulares son incapaces de construir normalmente objetos de montones de piezas de Lego y en lugar de requerir las páginas 
+             de instrucciones que se encuentran a lo largo de cada nivel para los personajes de los trabajadores de la construcción para su uso.</p>
+       
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

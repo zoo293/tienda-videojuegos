@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto">
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/astrobot.img1.jpg" alt="Carrusel imagen">
+        <img src="img/astrobot.img2.jpg" alt="Carrusel imagen">
+        <img src="img/astrobot.img3.jpg" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>Astro Bot</h2>
+        <p><strong>astro bot</strong> es un juego de plataformas y acción desarrollado por Team17 y lanzado para PlayStation 5. El juego sigue las aventuras de un pequeño robot 
+            llamado Astro, que debe explorar diferentes planetas y lunas para rescatar a sus amigos y restaurar el orden en el universo.</p>
+        <h3>Estilo visual y sonido:</h3>
+        <p>Gráficos: El juego cuenta con gráficos coloridos y detallados, que aprovechan al máximo las capacidades de la PlayStation 5.</p>
+        <p>Música: La banda sonora del juego es animada y emocionante, y se adapta perfectamente al ritmo y la acción del juego.</p>
+        <h3>Características</h3>
+        <ul>
+          <li><strong>Exploracion:</strong>  Astro puede explorar diferentes planetas y lunas, cada uno con su propio entorno y desafíos.</li>
+          <li><strong>Plataformas:</strong>  El juego cuenta con mecánicas de plataformas precisas y desafiantes, que requieren habilidad y estrategia para superar obstáculos y enemigos.</li>
+          <li><strong>Habilidades:</strong>  Astro puede adquirir diferentes habilidades y herramientas a medida que avanza en el juego, lo que le permite acceder a nuevas áreas y superar desafíos.</li>
+          <li><strong>Combate:</strong> Astro también puede luchar contra enemigos y jefes, utilizando sus habilidades y herramientas para derrotarlos.</li>
+          
+        </ul>
+        
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

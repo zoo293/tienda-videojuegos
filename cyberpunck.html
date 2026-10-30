@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto">
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/cyberpunck.img1.jpg" alt="Carrusel imagen">
+        <img src="img/cyberpunck.img2.jpeg" alt="Carrusel imagen">
+        <img src="img//cyberpunck.img3.avif" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>Cyberpunk 2077</h2>
+        <p><strong>Cyberpunk 2077</strong> es un videojuego de rol y acción en mundo abierto desarrollado por CD Projekt Red.</p>
+        <p>Está ambientado en un futuro distópico, en el año 2077, en una megaciudad llamada Night City.</p>
+        <h3>Trama principal</h3>
+        <p>El jugador toma el control de V, un mercenario que puede personalizarse en cuanto a género, apariencia, habilidades y trasfondo.</p>
+        <p>La historia gira en torno a una misión fallida que lleva a V a tener implantado un chip con la conciencia de Johnny Silverhand.</p>
+        <p>El objetivo es separarse de Johnny sin morir en el proceso.</p>
+        <h3>Características</h3>
+        <ul>
+          <li><strong>Mundo abierto:</strong> Explora libremente Night City.</li>
+          <li><strong>Estilo RPG:</strong> Decisiones que afectan la historia y el final.</li>
+          <li><strong>Combate y sigilo:</strong> Enfrenta desafíos a tu manera.</li>
+          <li><strong>Implantes:</strong> Mejora tus habilidades físicas y tecnológicas.</li>
+          <li><strong>Temas adultos:</strong> Identidad, moralidad y rebelión.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

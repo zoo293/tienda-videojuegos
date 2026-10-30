@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto">
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/evil.img1.png" alt="Carrusel imagen">
+        <img src="img/evil.img2.png" alt="Carrusel imagen">
+        <img src="img/evil.img3.png" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>resident evil 4</h2>
+        <p><strong>resident evil 4</strong> es un videojuego de acción y terror desarrollado por Capcom. Es una de las entregas más populares de la saga Resident Evil. 
+            Fue lanzado originalmente en 2005 y recibió un remake en 2023 con gráficos y jugabilidad actualizados.</p>
+        
+        <h3>Trama principal</h3>
+        <p>El juego sigue a Leon S. Kennedy, un ex policía y agente del gobierno de EE. UU., que es enviado a un remoto pueblo en España para rescatar a Ashley Graham, la hija del presidente,
+             que ha sido secuestrada. Al llegar, Leon descubre que los aldeanos están infectados con un parásito llamado Las Plagas, que los vuelve violentos y controlables.
+              Detrás del secuestro está un culto llamado Los Iluminados, liderado por Osmund Saddler, quien planea usar a Ashley para propagar el parásito en Estados Unidos.
+            Leon debe enfrentarse a hordas de enemigos, resolver acertijos, rescatar a Ashley y desmantelar los planes del culto.</p>
+        <h3>Características</h3>
+        <ul>
+          <li>Mezcla de acción y horror con perspectiva en tercera persona.</li>
+          <li>Enemigos inteligentes y variados.</li>
+          <li>Sistema de mejoras de armas y gestión de inventario.</li>
+          <li>Jefes memorables y escenas cinematográficas intensas.</li>
+       
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>INFORMACION DEL JUEGO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .contenedor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carrusel-con-texto {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .carrusel {
+      width: 450px;
+    }
+
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .texto {
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .texto h2, .texto h3 {
+      margin: 10px 0;
+    }
+
+    .texto p {
+      margin: 5px 0;
+    }
+
+    .texto ul {
+      padding-left: 20px;
+    }
+
+    .texto li {
+      margin-bottom: 6px;
+    }
+  </style>
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+  <div class="barra-volver">
+    <a class="btn-volver" href="abrir1ro.html" onclick="if(history.length>1){history.back();return false;}">&larr; Volver a la tienda</a>
+  </div>
+
+
+  <div class="contenedor">
+    <div class="carrusel-con-texto">
+
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img src="img/sakiro.img1.jpg" alt="Carrusel imagen">
+        <img src="img/sakiro.img2.jpg" alt="Carrusel imagen">
+        <img src="img/sakiro.img3.jpg" alt="Carrusel imagen">
+      </div>
+
+      <!-- Texto -->
+      <div class="texto">
+        <h2>sekiro shadows</h2>
+        <p><strong>sekiro shadows</strong>es un juego de acción y aventuras desarrollado por FromSoftware, los mismos creadores de la serie Dark Souls y Bloodborne.</p>
+        <p>El juego sigue la historia de un shinobi llamado Wolf, que se embarca en una misión para rescatar a su señor, el joven heredero del clan Ashina, de las manos de un poderoso samurái
+             llamado Isshin Ashina..</p>
+        <h3>Requisitos del sistema:</h3>
+        <p>Plataforma: PlayStation 4, Xbox One, PC (Microsoft Windows)</p>
+        <p>Requisitos mínimos: Procesador Intel Core i3-2100 o AMD equivalente, 4 GB de RAM, tarjeta gráfica NVIDIA GeForce GTX 760 o AMD Radeon HD 7950.</p>
+        <h3>Características</h3>
+        <ul>
+          <li> Combate desafiante: El juego cuenta con un sistema de combate profundo y desafiante, que requiere habilidad y
+             estrategia para superar a los enemigos.</li>
+          <li>Exploración: El juego tiene un mundo abierto que puedes explorar, con diferentes áreas y secretos que descubrir.</li>
+          <li>Mejoras y habilidades: Puedes mejorar las habilidades de Wolf y desbloquear nuevas técnicas y herramientas a medida que avanzas en el juego.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

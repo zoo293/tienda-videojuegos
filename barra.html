@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="tema.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Respaldo: por si tema.css no carga, esta página igual se ve bien */
+:root{--fondo:#0b0a1a;--panel:#15122b;--panel2:#1d1940;--violeta:#7c5cff;--rosa:#ff3d9a;--cian:#29e0ff;--verde:#5df0a8;--texto:#ece9ff;--suave:#a9a3c7}
+*{font-family:'Rajdhani',Arial,sans-serif}
+h1,h2,h3{font-family:'Orbitron',sans-serif}
+body{color:var(--texto)}
+a{color:var(--cian);text-decoration:none}
+</style>
+<style>
+  html body{margin:0;height:100vh;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-sizing:border-box;
+    background:linear-gradient(90deg,#0b0a1a,#1a1440);border-bottom:2px solid var(--violeta);box-shadow:0 4px 24px rgba(124,92,255,.5)}
+  .logo{font-family:'Orbitron',sans-serif;font-weight:900;font-size:26px;letter-spacing:4px;color:transparent;
+    background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));-webkit-background-clip:text;background-clip:text}
+  .usuario{display:flex;align-items:center;gap:14px}
+  #nombre-usuario{font-weight:700;font-size:18px}
+  #btn-salir{padding:10px 18px;border:0;border-radius:8px;cursor:pointer;color:#fff;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;
+    background:linear-gradient(90deg,var(--violeta),var(--rosa));transition:.25s}
+  #btn-salir:hover{transform:scale(1.06);box-shadow:0 0 16px rgba(255,61,154,.65)}
+</style>
+</head>
+<body>
+  <div class="logo">GAMEVERSE</div>
+  <div class="usuario">
+    <span id="nombre-usuario">Hola</span>
+    <button id="btn-salir" type="button">Cerrar sesión</button>
+  </div>
+<script>
+  var s = JSON.parse(localStorage.getItem('gv_sesion') || '{}');
+  document.getElementById('nombre-usuario').textContent = 'Hola, ' + (s.nombre || 'invitado');
+  document.getElementById('btn-salir').onclick = function(){
+    localStorage.removeItem('gv_sesion');
+    window.top.location.href = 'index.html';
+  };
+</script>
+</body>
+</html>

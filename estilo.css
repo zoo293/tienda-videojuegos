@@ -1,0 +1,450 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Titillium+Web:wght@200;300;400;600;700&display=swap');
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Open Sans';
+}
+header{
+    background: url(img/header.jpg);
+    background-size: cover;
+    background-position:center;
+    height: 300px;
+}
+header h1{
+    text-align: center;
+    font-size: 35px;
+    /* background-color: #000; */
+    color: #000000;
+    padding: 30px 0;
+}
+.contenedor{
+    max-width: 1200px;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    /* oculto lo que queda fuera del .contenedor */
+    contain: paint;
+}
+/* SECCION CONTENEDOR DE ITEMS */
+.contenedor .contenedor-items{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap:30px;
+    grid-row-gap: 30px;
+    /* width: 60%; */
+    width: 100%;
+    transition: .3s;
+}
+.contenedor .contenedor-items .item{
+    max-width: 200px;
+    margin: auto;
+    border: 1px solid #06000a;
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+}
+.contenedor .contenedor-items .item .img-item{
+    width: 100%;
+}
+.contenedor .contenedor-items .item:hover{
+    box-shadow: 0 0 10px #000000;
+    scale: 1.05;
+}
+.contenedor .contenedor-items .item .titulo-item{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+.contenedor .contenedor-items .item .precio-item{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.contenedor .contenedor-items .item .boton-item{
+    display: block;
+    margin: 10px auto;
+    border: none;
+    background-color: rgb(2, 0, 3);
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* seccion carrito */
+.carrito{
+    border: 1px solid #ffffffde;
+    width: 35%;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: auto;
+    position: sticky !important;
+    top: 0;
+    transition: .3s;
+    /* Estilos para ocultar */
+    margin-right: -100%;
+    opacity: 0;
+}
+.carrito .header-carrito{
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 30px 0;
+}
+.carrito .carrito-item{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    position: relative;
+    border-bottom: 1px solid #000000;
+    padding: 20px;}
+.carrito .carrito-item img{
+    margin-right: 20px;
+}
+.carrito .carrito-item .carrito-item-titulo{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.carrito .carrito-item .selector-cantidad{
+    display: inline-block;
+    margin-right: 25px;
+}
+.carrito .carrito-item .carrito-item-cantidad{
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+    display: inline-block;
+    width:30px;
+    padding: 5px;
+    text-align: center;
+}
+.carrito .carrito-item .selector-cantidad i{
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+.carrito .carrito-item .carrito-item-precio{
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.carrito .carrito-item .btn-eliminar{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #ff0000;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #fdf8f8;
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    z-index: 20;
+}
+.carrito .carrito-item .btn-eliminar i{
+    pointer-events: none;
+}
+
+.carrito-total{
+    background-color: #ffffff;
+    padding: 30px;
+}
+.carrito-total .fila{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.carrito-total .btn-pagar{
+    display: block;
+    width: 100%;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.carrito-total .btn-pagar:hover{
+    scale: 1.05;
+}
+
+/* SECCION RESPONSIVE */
+@media screen and (max-width: 850px) {
+    .contenedor {
+      display: block;
+    }
+    .contenedor-items{
+        width: 100% !important;
+    }
+    .carrito{
+        width: 100%;
+    }
+  }
+  /* ===== BOLETA (ventana al pagar) ===== */
+#boleta-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,8,20,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:16px;overflow:auto}
+.boleta-caja{width:100%;max-width:380px;max-height:95vh;overflow:auto}
+.boleta-papel{background:#fffdf7;color:#222;font-family:'Courier New',monospace;font-size:14px;padding:26px 22px 34px;border-radius:6px 6px 0 0;
+  -webkit-mask:radial-gradient(circle 7px at 50% 100%,#0000 98%,#000) bottom/14px 100% repeat-x;mask:radial-gradient(circle 7px at 50% 100%,#0000 98%,#000) bottom/14px 100% repeat-x}
+.boleta-papel *{font-family:'Courier New',monospace}
+.boleta-papel h2{text-align:center;font-size:26px;letter-spacing:3px}
+.boleta-papel .centro{text-align:center}
+.boleta-papel .tipo{text-align:center;font-weight:bold;margin:8px 0 2px}
+.boleta-papel hr{border:0;border-top:2px dashed #999;margin:12px 0}
+.boleta-papel table{width:100%;border-collapse:collapse}
+.boleta-papel th{text-align:left;border-bottom:1px solid #333;padding:4px 0}
+.boleta-papel td{padding:4px 0;vertical-align:top}
+.boleta-papel .der{text-align:right}
+.boleta-papel .total{font-size:18px;font-weight:bold}
+.boleta-papel .codigo{height:46px;margin:14px auto 6px;width:75%;background:repeating-linear-gradient(90deg,#111 0 2px,#fffdf7 2px 4px,#111 4px 5px,#fffdf7 5px 8px)}
+.boleta-botones{display:flex;gap:10px;margin-top:12px}
+.boleta-botones button{flex:1;padding:13px;border:0;border-radius:10px;font-size:15px;font-weight:bold;cursor:pointer}
+#btn-imprimir{background:linear-gradient(90deg,#7c5cff,#ff4fa3);color:#fff}
+#btn-cerrar-boleta{background:#fff;color:#222}
+@media print{
+  body *{visibility:hidden}
+  #boleta-overlay,#boleta-overlay *{visibility:visible}
+  #boleta-overlay{position:absolute;inset:0;display:block!important;background:#fff;padding:0;backdrop-filter:none}
+  .boleta-caja{max-width:100%;max-height:none;overflow:visible}
+  .no-imprimir{display:none!important}
+}
+/* ===== TEMA GAMER: se comparte en todas las páginas =====
+   Para cambiar la paleta, solo edita los colores de :root */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+:root{
+  --fondo:#0b0a1a; --panel:#15122b; --panel2:#1d1940;
+  --violeta:#7c5cff; --rosa:#ff3d9a; --cian:#29e0ff; --verde:#5df0a8;
+  --texto:#ece9ff; --suave:#a9a3c7;
+}
+*{font-family:'Rajdhani',Arial,sans-serif}
+html body{
+  background-color:var(--fondo);
+  background-image:linear-gradient(rgba(124,92,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,255,.07) 1px,transparent 1px);
+  background-size:40px 40px;color:var(--texto);font-size:17px;
+}
+html body h1,html body h2,html body h3{font-family:'Orbitron',sans-serif}
+html body a{color:var(--cian);text-decoration:none;transition:.2s}
+html body a:hover{color:var(--rosa);text-shadow:0 0 10px var(--rosa)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--fondo)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--violeta),var(--rosa));border-radius:6px}
+
+/* ----- Principal ----- */
+html body main h1{font-size:46px;letter-spacing:6px;color:transparent;
+  background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));-webkit-background-clip:text;background-clip:text}
+html body main img{border-radius:16px;border:1px solid rgba(124,92,255,.6);box-shadow:0 0 40px rgba(124,92,255,.55)}
+
+/* ----- Lista de productos ----- */
+html body table{background:var(--panel);border:1px solid var(--violeta);border-radius:14px;overflow:hidden;box-shadow:0 0 30px rgba(124,92,255,.35)}
+html body th,html body td{border:1px solid rgba(124,92,255,.25);padding:12px}
+html body thead{background:linear-gradient(90deg,var(--violeta),var(--rosa));color:#fff;font-family:'Orbitron',sans-serif}
+html body tbody tr:nth-child(odd){background:var(--panel)}
+html body tbody tr:nth-child(even){background:var(--panel2)}
+html body tbody tr:hover{background:rgba(41,224,255,.12)}
+html body tbody td{color:var(--texto);font-weight:600}
+html body tbody td:nth-child(2){color:var(--verde);font-weight:700}
+html body tbody td:nth-child(2)::before{content:"$ "}
+
+/* ----- Créditos ----- */
+html body .titulo{font-family:'Orbitron',sans-serif;font-size:48px;color:transparent;
+  background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));-webkit-background-clip:text;background-clip:text}
+html body .alumno{display:inline-block;font-size:22px;color:var(--texto);background:var(--panel);
+  border-left:4px solid var(--cian);border-radius:8px;padding:10px 18px}
+html body .docente{color:var(--rosa);font-size:22px;text-shadow:0 0 12px rgba(255,61,154,.6)}
+
+/* ----- Páginas de información de cada juego ----- */
+body:has(.carrusel-con-texto) .contenedor{height:auto;min-height:100vh}
+html body .carrusel-con-texto{background:var(--panel);border:1px solid rgba(124,92,255,.55);border-radius:16px;box-shadow:0 0 45px rgba(124,92,255,.3)}
+html body .carrusel img{border:1px solid rgba(41,224,255,.35);margin-bottom:8px}
+html body .texto{color:var(--texto)}
+html body .texto h2{color:var(--cian);font-size:28px;text-shadow:0 0 14px rgba(41,224,255,.6)}
+html body .texto h3{color:var(--rosa)}
+html body .texto strong{color:var(--verde)}
+html body .texto li::marker{color:var(--rosa)}
+
+@import url('tema.css');
+/* ===== TIENDA (abrir1ro.html) ===== */
+*{margin:0;padding:0}
+header{
+    background:url(img/header.jpg);background-size:cover;background-position:center;height:300px;
+    border-bottom:2px solid var(--violeta);box-shadow:0 8px 30px rgba(124,92,255,.45);
+}
+header h1{text-align:center;font-size:35px;padding:30px 0}
+.contenedor{
+    max-width:1200px;padding:10px;margin:auto;display:flex;justify-content:space-between;
+    contain:paint;
+}
+/* --- tarjetas de juegos --- */
+.contenedor .contenedor-items{
+    margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-gap:30px;width:100%;transition:.3s;
+}
+.contenedor .contenedor-items .item{
+    max-width:200px;margin:auto;padding:20px;border-radius:14px;
+    background:var(--panel);border:1px solid rgba(124,92,255,.45);transition:.3s;
+}
+.contenedor .contenedor-items .item:hover{
+    transform:translateY(-8px);border-color:var(--cian);
+    box-shadow:0 0 22px rgba(41,224,255,.5),0 0 50px rgba(124,92,255,.35);
+}
+.contenedor .contenedor-items .item .img-item{width:100%;border-radius:10px;margin:8px 0}
+.contenedor .contenedor-items .item .titulo-item{
+    display:block;font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;
+    text-align:center;text-transform:uppercase;color:var(--cian);
+}
+.contenedor .contenedor-items .item .precio-item{
+    display:block;text-align:center;font-family:'Orbitron',sans-serif;font-weight:700;font-size:22px;
+    color:var(--verde);text-shadow:0 0 12px rgba(93,240,168,.5);
+}
+.contenedor .contenedor-items .item .boton-item{
+    display:block;margin:10px auto;border:none;padding:8px 15px;border-radius:8px;cursor:pointer;
+    font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;color:#fff;
+    background:linear-gradient(90deg,var(--violeta),var(--rosa));transition:.25s;
+}
+.contenedor .contenedor-items .item .boton-item:hover{transform:scale(1.06);box-shadow:0 0 16px rgba(255,61,154,.6)}
+/* el botón "Mas informacion" va con borde, para distinguirlo */
+.contenedor .contenedor-items .item a .boton-item{background:transparent;border:1px solid var(--cian);color:var(--cian)}
+.contenedor .contenedor-items .item a .boton-item:hover{background:rgba(41,224,255,.15);box-shadow:0 0 16px rgba(41,224,255,.6)}
+
+/* --- carrito --- */
+.carrito{
+    border:1px solid var(--violeta);width:35%;margin-top:30px;border-radius:14px;overflow:hidden;
+    margin-bottom:auto;position:sticky !important;top:0;transition:.3s;
+    background:var(--panel);box-shadow:0 0 30px rgba(124,92,255,.4);
+    margin-right:-100%;opacity:0;
+}
+.carrito .header-carrito{
+    background:linear-gradient(90deg,var(--violeta),var(--rosa));color:#fff;text-align:center;padding:26px 0;
+}
+.carrito .carrito-item{
+    display:flex;align-items:center;position:relative;padding:20px;
+    border-bottom:1px solid rgba(124,92,255,.35);
+}
+.carrito .carrito-item img{margin-right:20px;border-radius:8px}
+.carrito .carrito-item .carrito-item-titulo{
+    display:block;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;
+    margin-bottom:10px;text-transform:uppercase;color:var(--cian);
+}
+.carrito .carrito-item .selector-cantidad{display:inline-block;margin-right:25px}
+.carrito .carrito-item .carrito-item-cantidad{
+    border:none;font-size:18px;background:transparent;color:var(--texto);
+    display:inline-block;width:30px;padding:5px;text-align:center;
+}
+.carrito .carrito-item .selector-cantidad i{
+    font-size:14px;width:32px;height:32px;line-height:32px;text-align:center;border-radius:50%;
+    border:1px solid var(--cian);color:var(--cian);cursor:pointer;transition:.2s;
+}
+.carrito .carrito-item .selector-cantidad i:hover{background:var(--cian);color:var(--fondo)}
+.carrito .carrito-item .carrito-item-precio{
+    font-weight:700;display:inline-block;font-size:19px;margin-bottom:5px;color:var(--verde);
+}
+.carrito .carrito-item .btn-eliminar{
+    position:absolute;right:15px;top:15px;color:var(--rosa);font-size:18px;width:40px;height:40px;line-height:40px;
+    text-align:center;border-radius:50%;border:1px solid rgba(255,61,154,.5);cursor:pointer;display:block;
+    background:transparent;z-index:20;transition:.2s;
+}
+.carrito .carrito-item .btn-eliminar:hover{background:var(--rosa);color:#fff}
+.carrito .carrito-item .btn-eliminar i{pointer-events:none}
+.carrito-total{background:var(--panel2);padding:30px}
+.carrito-total .fila{
+    display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:700;margin-bottom:14px;
+}
+.carrito-total .fila .carrito-precio-total{color:var(--verde);font-family:'Orbitron',sans-serif;text-shadow:0 0 12px rgba(93,240,168,.5)}
+.carrito-total .btn-pagar{
+    width:100%;border:none;color:#fff;border-radius:10px;font-family:'Orbitron',sans-serif;font-size:16px;font-weight:700;
+    padding:18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:.3s;
+    background:linear-gradient(90deg,var(--violeta),var(--rosa));
+}
+.carrito-total .btn-pagar:hover{transform:scale(1.04);box-shadow:0 0 22px rgba(255,61,154,.65)}
+
+/* --- responsive --- */
+@media screen and (max-width:850px){
+    .contenedor{display:block}
+    .contenedor-items{width:100% !important}
+    .carrito{width:100%}
+}
+/* ===== TEMA GAMER: se comparte en todas las páginas =====
+   Para cambiar la paleta, solo edita los colores de :root */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+:root{
+  --fondo:#0b0a1a; --panel:#15122b; --panel2:#1d1940;
+  --violeta:#7c5cff; --rosa:#ff3d9a; --cian:#29e0ff; --verde:#5df0a8;
+  --texto:#ece9ff; --suave:#a9a3c7;
+}
+*{font-family:'Rajdhani',Arial,sans-serif}
+html body{
+  background-color:var(--fondo);
+  background-image:linear-gradient(rgba(124,92,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,255,.07) 1px,transparent 1px);
+  background-size:40px 40px;color:var(--texto);font-size:17px;
+}
+html body h1,html body h2,html body h3{font-family:'Orbitron',sans-serif}
+html body a{color:var(--cian);text-decoration:none;transition:.2s}
+html body a:hover{color:var(--rosa);text-shadow:0 0 10px var(--rosa)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--fondo)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--violeta),var(--rosa));border-radius:6px}
+
+/* ----- Principal ----- */
+html body main h1{font-size:46px;letter-spacing:6px;color:transparent;
+  background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));-webkit-background-clip:text;background-clip:text}
+html body main img{border-radius:16px;border:1px solid rgba(124,92,255,.6);box-shadow:0 0 40px rgba(124,92,255,.55)}
+
+/* ----- Lista de productos ----- */
+html body table{background:var(--panel);border:1px solid var(--violeta);border-radius:14px;overflow:hidden;box-shadow:0 0 30px rgba(124,92,255,.35)}
+html body th,html body td{border:1px solid rgba(124,92,255,.25);padding:12px}
+html body thead{background:linear-gradient(90deg,var(--violeta),var(--rosa));color:#fff;font-family:'Orbitron',sans-serif}
+html body tbody tr:nth-child(odd){background:var(--panel)}
+html body tbody tr:nth-child(even){background:var(--panel2)}
+html body tbody tr:hover{background:rgba(41,224,255,.12)}
+html body tbody td{color:var(--texto);font-weight:600}
+html body tbody td:nth-child(2){color:var(--verde);font-weight:700}
+html body tbody td:nth-child(2)::before{content:"$ "}
+
+/* ----- Créditos ----- */
+html body .titulo{font-family:'Orbitron',sans-serif;font-size:48px;color:transparent;
+  background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));-webkit-background-clip:text;background-clip:text}
+html body .alumno{display:inline-block;font-size:22px;color:var(--texto);background:var(--panel);
+  border-left:4px solid var(--cian);border-radius:8px;padding:10px 18px}
+html body .docente{color:var(--rosa);font-size:22px;text-shadow:0 0 12px rgba(255,61,154,.6)}
+
+/* ----- Páginas de información de cada juego ----- */
+body:has(.carrusel-con-texto) .contenedor{height:auto;min-height:calc(100vh - 64px)}
+html body .carrusel-con-texto{background:var(--panel);border:1px solid rgba(124,92,255,.55);border-radius:16px;box-shadow:0 0 45px rgba(124,92,255,.3)}
+html body .carrusel img{border:1px solid rgba(41,224,255,.35);margin-bottom:8px}
+html body .texto{color:var(--texto)}
+html body .texto h2{color:var(--cian);font-size:28px;text-shadow:0 0 14px rgba(41,224,255,.6)}
+html body .texto h3{color:var(--rosa)}
+html body .texto strong{color:var(--verde)}
+html body .texto li::marker{color:var(--rosa)}
+
+/* Botón "Volver" de las páginas de información */
+.barra-volver{padding:16px 20px 0}
+html body .btn-volver{display:inline-block;padding:10px 20px;border-radius:10px;border:1px solid var(--cian);
+  background:rgba(41,224,255,.08);color:var(--cian);font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;transition:.25s}
+html body .btn-volver:hover{background:linear-gradient(90deg,var(--violeta),var(--rosa));border-color:transparent;color:#fff;
+  box-shadow:0 0 18px rgba(255,61,154,.6);transform:translateX(-4px);text-shadow:none}
